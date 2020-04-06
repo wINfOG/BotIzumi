@@ -1,0 +1,6 @@
+name: "BotIzumi"
+author: "lightless"
+version: "0.1.0"
+main: "me.lightless.plugin.IzumiPluginMain"
+info: ""
+depends: []
