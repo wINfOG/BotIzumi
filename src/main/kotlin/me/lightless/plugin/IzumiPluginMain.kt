@@ -48,7 +48,7 @@ object IzumiPluginMain : PluginBase() {
         }
 
         // 初始化变量
-        messageDispatcher = MessageDispatcher()
+        messageDispatcher = MessageDispatcher(botConfig)
     }
 
     override fun onEnable() {
