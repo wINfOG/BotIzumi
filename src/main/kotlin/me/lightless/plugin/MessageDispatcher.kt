@@ -4,18 +4,16 @@ import me.lightless.plugin.handler.CommandHandler
 import me.lightless.plugin.handler.MessageHandler
 import net.mamoe.mirai.contact.Group
 import net.mamoe.mirai.message.data.MessageChain
-import net.mamoe.mirai.message.data.PlainText
-import net.mamoe.mirai.utils.MiraiLogger
 
 class MessageDispatcher {
 
-    private final val tag = "[MessageDispatcher]"
-    private final val allowedGroups = listOf<Long>(574255110, 672534169)
-    private final val commandHandler = CommandHandler()
-    private final val messageHandler = MessageHandler()
+    private val tag = "[MessageDispatcher]"
+    private val allowedGroups = listOf<Long>(574255110, 672534169)
+    private val commandHandler = CommandHandler()
+    private val messageHandler = MessageHandler()
 
     init {
-        println("MessageDispatcher init!")
+        IzumiPluginMain.logger.info("$tag MessageDispatcher init!")
     }
 
     private fun isCommand(message: String): Boolean = message.startsWith("/")
@@ -30,12 +28,8 @@ class MessageDispatcher {
         }
 
         when {
-            isCommand(message.toString()) -> {
-                commandHandler.dispatcher()
-            }
-            else -> {
-                messageHandler.dispatcher()
-            }
+            isCommand(message.toString()) -> commandHandler.dispatcher()
+            else -> messageHandler.dispatcher()
         }
 
     }
