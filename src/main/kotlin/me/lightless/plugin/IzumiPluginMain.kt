@@ -70,7 +70,6 @@ object IzumiPluginMain : PluginBase() {
         subscribeGroupMessages {
             always {
                 launch {
-                    logger.info("$TAG 开启消息分发!")
                     messageDispatcher?.onMessage(group, message)
                 }
             }
